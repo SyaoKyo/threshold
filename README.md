@@ -15,7 +15,7 @@
 - 一旦找到了需要分割的物体的像素点，我们可以对这些像素点设定一些特定的值来表示。（例如：可以将该物体的像素点的灰度值设定为：‘0’（黑色）,其他的像素点的灰度值为：‘255’（白色）；当然像素点的灰度值可以任意，但最好设定的两种颜色对比度较强，方便观察结果）。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Example.jpg" alt="Threshold simple example"/>
+<img src="./pic/Threshold_Tutorial_Theory_Example.jpg" alt="Threshold simple example"/>
 </div>
 
 ### 阈值化的类型
@@ -27,7 +27,7 @@
 - 为了解释阈值分割的过程，我们来看一个简单有关像素灰度的图片，该图如下。该图中的蓝色水平线代表着具体的一个阈值。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Base_Figure.png" alt="Threshold Binary"/>
+<img src="./pic/Threshold_Tutorial_Theory_Base_Figure.png" alt="Threshold Binary"/>
 </div>
 
   #### 阀值类型1：二进制阈值化
@@ -35,73 +35,73 @@
   - 该阈值化类型如下式所示:
 
 <div align=center>
-	<img src="./pic/78fda905d5dd8210a01906247514a67d8763407c.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{maxVal}}{if $\texttt{src}(x,y) > \texttt{thresh}$}{0}{otherwise}"/>
+<img src="./pic/78fda905d5dd8210a01906247514a67d8763407c.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{maxVal}}{if $\texttt{src}(x,y) > \texttt{thresh}$}{0}{otherwise}"/>
 </div>
 
   - 解释：在运用该阈值类型的时候，先要选定一个特定的阈值量，比如：125，这样，新的阈值产生规则可以解释为大于125的像素点的灰度值设定为最大值(如8位灰度值最大为255)，灰度值小于125的像素点的灰度值设定为0。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Binary.png" alt="TThreshold Binary"/>
+<img src="./pic/Threshold_Tutorial_Theory_Binary.png" alt="TThreshold Binary"/>
 </div>
-  
+
 
   #### 阀值类型2：反二进制阈值化
 
   - 该阈值类型如下式所示：
 
 <div align=center>
-	<img src="./pic/86b664329c208ff89854226e992d9e9f3f6a0697.png" alt="\texttt{dst} (x,y) =  \fork{0}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{maxVal}}{otherwise}"/>
+<img src="./pic/86b664329c208ff89854226e992d9e9f3f6a0697.png" alt="\texttt{dst} (x,y) =  \fork{0}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{maxVal}}{otherwise}"/>
 </div>
 
   - 解释：该阈值化与二进制阈值化相似，先选定一个特定的灰度值作为阈值，不过最后的设定值相反。（在8位灰度图中，例如大于阈值的设定为0，而小于该阈值的设定为255）。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Binary_Inverted.png" alt="Threshold Binary Inverted"/>
+<img src="./pic/Threshold_Tutorial_Theory_Binary_Inverted.png" alt="Threshold Binary Inverted"/>
 </div>
-  
+
 
   #### 阈值类型3：截断阈值化
 
   - 该阈值化类型如下式所示：
 
 <div align=center>
-	<img src="./pic/0f3cd4f2207fe9992e698c2699d7953453934874.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{threshold}}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{src}(x,y)}{otherwise}"/>
+<img src="./pic/0f3cd4f2207fe9992e698c2699d7953453934874.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{threshold}}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{src}(x,y)}{otherwise}"/>
 </div>
 
   - 解释：同样首先需要选定一个阈值，图像中大于该阈值的像素点被设定为该阈值，小于该阈值的保持不变。（例如：阈值选取为125，那小于125的阈值不改变，大于125的灰度值（230）的像素点就设定为该阈值）。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Truncate.png" alt="Threshold Truncate"/>
+<img src="./pic/Threshold_Tutorial_Theory_Truncate.png" alt="Threshold Truncate"/>
 </div>
-  
+
 
   #### 阈值类型4：阈值化为0
 
   - 该阈值类型如下式所示：
 
 <div align=center>
-	<img src="./pic/71183c69df0d555b0498c6d42e846f438e47b179.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{src}(x,y)}{if $\texttt{src}(x,y) > \texttt{thresh}$}{0}{otherwise}"/>
+<img src="./pic/71183c69df0d555b0498c6d42e846f438e47b179.png" alt="\texttt{dst} (x,y) =  \fork{\texttt{src}(x,y)}{if $\texttt{src}(x,y) > \texttt{thresh}$}{0}{otherwise}"/>
 </div>
 
   - 解释：先选定一个阈值，然后对图像做如下处理：1 像素点的灰度值大于该阈值的不进行任何改变；2 像素点的灰度值小于该阈值的，其灰度值全部变为0。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Zero.png" alt="Threshold Zero"/>
+<img src="./pic/Threshold_Tutorial_Theory_Zero.png" alt="Threshold Zero"/>
 </div>
-  
+
 
   #### 阈值类型5：反阈值化为0
 
   - 该阈值类型如下式所示：
 
 <div align=center>
-	<img src="./pic/2c112979b15dafc432c64bd20405ae2b3e64f149.png" alt="\texttt{dst} (x,y) =  \fork{0}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{src}(x,y)}{otherwise}"/>
+<img src="./pic/2c112979b15dafc432c64bd20405ae2b3e64f149.png" alt="\texttt{dst} (x,y) =  \fork{0}{if $\texttt{src}(x,y) > \texttt{thresh}$}{\texttt{src}(x,y)}{otherwise}"/>
 </div>
 
   - 解释：原理类似于0阈值，但是在对图像做处理的时候相反，即：像素点的灰度值小于该阈值的不进行任何改变，而大于该阈值的部分，其灰度值全部变为0。
 
 <div align=center>
-	<img src="./pic/Threshold_Tutorial_Theory_Zero_Inverted.png" alt="Threshold Zero Inverted"/>
+<img src="./pic/Threshold_Tutorial_Theory_Zero_Inverted.png" alt="Threshold Zero Inverted"/>
 </div>
 
 
@@ -130,12 +130,12 @@
 
   ```C++
   createTrackbar("Type",
-  		window_name, &threshold_type,
-  		max_type, Threshold_Demo);
+                 window_name, &threshold_type,
+                 max_type, Threshold_Demo);
   
-  	createTrackbar("Value",
-  		window_name, &threshold_value,
-  		max_value, Threshold_Demo);
+  createTrackbar("Value",
+                 window_name, &threshold_value,
+                 max_value, Threshold_Demo);
   ```
 
 - 在这里等到用户拖动滚动条来输入阈值类型以及阈值的大小，或者是用户键入ESC健退出程序。
